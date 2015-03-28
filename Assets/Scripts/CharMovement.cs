@@ -45,27 +45,6 @@ public class CharMovement : MonoBehaviour {
 			
 		}
 
-		// INPUT TOUCH aqui a ultima instruçao e a unica a correr
-		/*for (int i=0; i < Input.touchCount ;++i)
-		{
-			if (Input.GetTouch(i).phase==TouchPhase.Began)
-			{
-				if (GameObject.FindWithTag("Lane1"))
-				{
-					ZuperPosition = Lane1PointX;
-
-				}
-				if (GameObject.FindWithTag("Lane2"))
-				{
-					ZuperPosition = Lane2PointX;
-				}
-				if (GameObject.FindWithTag("Lane3"))
-				{
-					ZuperPosition = Lane3PointX;
-				}
-			}
-		}*/
-
 		foreach (Touch touch in Input.touches) 
 		{
 			if (touch.phase == TouchPhase.Began)
