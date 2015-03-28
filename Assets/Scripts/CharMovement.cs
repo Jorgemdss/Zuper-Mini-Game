@@ -106,10 +106,13 @@ public class CharMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
+
+
 		if (GameObject.FindWithTag ("Letter")) 
 		{
 			Destroy(col.gameObject);
-			Debug.Log("got *A* ");
+			Debug.Log("");
+			
 		}
 	}
 }
