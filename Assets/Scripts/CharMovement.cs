@@ -75,9 +75,6 @@ public class CharMovement : MonoBehaviour {
 
 
 		//*****************************************END OF CHAR MOV *****************************************
-
-
-	
 	}
 
 	void moveToLeft()
@@ -103,6 +100,16 @@ public class CharMovement : MonoBehaviour {
 		if (ZuperPosition == Lane1PointX )
 		{
 			ZuperPosition = Lane2PointX;
+		}
+	}
+
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (GameObject.FindWithTag ("Letter")) 
+		{
+			Destroy(col.gameObject);
+			Debug.Log("got *A* ");
 		}
 	}
 }
