@@ -12,10 +12,12 @@ public class CharMovement : MonoBehaviour {
 	Vector2 Lane2PointX;
 	Vector2 Lane3PointX;
 
+	public static string myLetterValue;
+
 
 
 	void Start () {
-
+		myLetterValue = null;
 
 		Lane1PointX = new Vector2 (Lane1PointObject.transform.position.x, this.gameObject.transform.position.y);
 		Lane2PointX = new Vector2 (Lane2PointObject.transform.position.x, this.gameObject.transform.position.y);
@@ -32,7 +34,6 @@ public class CharMovement : MonoBehaviour {
 		transform.position = ZuperPosition;
 
 		if (Input.GetKeyDown (KeyCode.R))Application.LoadLevel("Main");
-		
 		//***************************** CHAR MOVEMENT SIDEWAYS ***************************************
 		if (Input.GetKeyDown (KeyCode.A))
 		{
@@ -110,9 +111,29 @@ public class CharMovement : MonoBehaviour {
 
 		if (GameObject.FindWithTag ("Letter")) 
 		{
+
+			Debug.Log("name: " + col.gameObject.transform.name);
+
+
+			switch (col.gameObject.transform.name)//switch para ver que letra choca
+			{
+			case "a(Clone)":
+				myLetterValue = "a";
+				Debug.Log(myLetterValue);
+				break;
+			case "e(Clone)":
+				myLetterValue = "e";
+				Debug.Log(myLetterValue);
+				break;
+			default:
+				myLetterValue = null;
+				Debug.Log(myLetterValue);
+				break;
+			}
+
 			Destroy(col.gameObject);
-			Debug.Log("");
 			
 		}
 	}
+	
 }
