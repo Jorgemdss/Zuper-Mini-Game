@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharMovement : MonoBehaviour {
+public class CharController : MonoBehaviour {
 
 	public GameObject Lane1PointObject; //left
 	public GameObject Lane2PointObject; //middle
@@ -17,7 +17,7 @@ public class CharMovement : MonoBehaviour {
 
 
 	void Start () {
-		myLetterValue = null;
+		myLetterValue = "_" ;// isto e como se tivesse null
 
 		Lane1PointX = new Vector2 (Lane1PointObject.transform.position.x, this.gameObject.transform.position.y);
 		Lane2PointX = new Vector2 (Lane2PointObject.transform.position.x, this.gameObject.transform.position.y);
@@ -126,7 +126,7 @@ public class CharMovement : MonoBehaviour {
 				Debug.Log(myLetterValue);
 				break;
 			default:
-				myLetterValue = null;
+				myLetterValue = "_";
 				Debug.Log(myLetterValue);
 				break;
 			}
