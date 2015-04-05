@@ -34,6 +34,9 @@ public class CharController : MonoBehaviour {
 		transform.position = ZuperPosition;
 
 		if (Input.GetKeyDown (KeyCode.R))Application.LoadLevel("Main");
+
+
+
 		//***************************** CHAR MOVEMENT SIDEWAYS ***************************************
 		if (Input.GetKeyDown (KeyCode.A))
 		{
@@ -123,6 +126,14 @@ public class CharController : MonoBehaviour {
 				break;
 			case "e(Clone)":
 				myLetterValue = "e";
+				Debug.Log(myLetterValue);
+				break;
+			case "i(Clone)":
+				myLetterValue = "i";
+				Debug.Log(myLetterValue);
+				break;
+			case "c(Clone)":
+				myLetterValue = "c";
 				Debug.Log(myLetterValue);
 				break;
 			default:

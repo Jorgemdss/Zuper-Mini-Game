@@ -3,12 +3,14 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
+	/*
+	 * o game manager e o main script disto, aqui controlo colisoes, movimentos, pontos, engeria, e outra vars	 * 
+	 */
 
-	//public GameObject A;
-	//public static string aValue;
 
 	public GameObject word;
 	public GameObject livesText;
+	public AudioSource mainMusic;
 
 	public string wantedWord;
 	public string wantedLetter;
@@ -23,7 +25,6 @@ public class GameManager : MonoBehaviour {
 
 		livesText.GetComponent<Text> ().text = lives.ToString();
 
-		//aValue = A.transform.name;
 
 	
 	}
@@ -32,12 +33,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 
 		if (wantedWord =="Vela")wantedLetter = "a";
-		if (lives <= 0) 
-		{
-			//gameOver();
-			Debug.Log("Game Over");
-			//Time.timeScale= 0;
-		}
+
+
+		GameOver();	
 
 		WordCompleter ();
 
@@ -71,6 +69,17 @@ public class GameManager : MonoBehaviour {
 		Application.LoadLevel("Main");
 		lives = 3;
 		Time.timeScale = 1;
+	}
+
+	void GameOver()
+	{
+		if (lives <= 0) 
+		{
+			Debug.Log ("Game Over");
+			Time.timeScale = 0;
+			mainMusic.Stop ();
+			livesText.GetComponent<Text> ().text = "Game Over";
+		}
 	}
 
 }
