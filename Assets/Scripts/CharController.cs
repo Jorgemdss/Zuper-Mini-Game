@@ -121,19 +121,19 @@ public class CharController : MonoBehaviour {
 			switch (col.gameObject.transform.name)//switch para ver que letra choca
 			{
 			case "a(Clone)":
-				myLetterValue = "a";
+				myLetterValue = "A";
 				Debug.Log(myLetterValue);
 				break;
 			case "e(Clone)":
-				myLetterValue = "e";
+				myLetterValue = "E";
 				Debug.Log(myLetterValue);
 				break;
 			case "i(Clone)":
-				myLetterValue = "i";
+				myLetterValue = "I";
 				Debug.Log(myLetterValue);
 				break;
 			case "c(Clone)":
-				myLetterValue = "c";
+				myLetterValue = "C";
 				Debug.Log(myLetterValue);
 				break;
 			default:

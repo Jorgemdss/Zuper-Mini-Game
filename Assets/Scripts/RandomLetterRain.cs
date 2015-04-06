@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -18,53 +18,50 @@ public class RandomLetterRain : MonoBehaviour {
 	
 	//public List<GameObject> minhaLista = new List <GameObject> ();
 
-	public GameObject[] letterWordList1 = new GameObject[4];
-	public GameObject listToBeInstantiated;
+	 
+	public GameObject[] letterGroupList1 = new GameObject[2];
+	public GameObject[] letterGroupList2 = new GameObject[2];
+	public GameObject[] listToSummon = new GameObject[5];
+
+
 	public GameObject myRandomObject;
 
-	public GameObject letterObject;
-	public GameObject letterObject2;
 
 
 	void Start () {
 
-
-
-
 		MakeItRain ();
+		listToSummon = letterGroupList1;
 
 	}
 	
 
 	void Update () {
-
-		myRandomObject = letterWordList1 [Random.Range (0, letterWordList1.Length)];
-		listToBeInstantiated = myRandomObject;
+		CheckWordPickList ();
 
 
-
-	
+		myRandomObject = listToSummon [Random.Range (0, listToSummon.Length)];
 	}
 
 
 	void LaunchProjectileLane1()
 	{
-		GameObject myRandomObject = letterWordList1 [Random.Range (0, letterWordList1.Length)];
-		GameObject randomInstance = (GameObject)Instantiate (listToBeInstantiated, spawn1.transform.position, Quaternion.identity);
+		CheckWordPickList ();
+		GameObject randomInstance = (GameObject)Instantiate (myRandomObject, spawn1.transform.position, Quaternion.identity);
 
 	}
 	void LaunchProjectileLane2()
 	{
-		GameObject myRandomObject = letterWordList1 [Random.Range (0, letterWordList1.Length)];
+		CheckWordPickList ();
 
-		GameObject letterE = (GameObject)Instantiate (listToBeInstantiated, spawn2.transform.position, Quaternion.identity);
+		GameObject randomInstance = (GameObject)Instantiate (myRandomObject, spawn2.transform.position, Quaternion.identity);
 	}
 
 	void LaunchProjectileLane3()
 	{
-		GameObject myRandomObject = letterWordList1 [Random.Range (0, letterWordList1.Length)];
+		CheckWordPickList ();
 
-		GameObject letterE = (GameObject)Instantiate (listToBeInstantiated, spawn3.transform.position, Quaternion.identity);
+		GameObject randomInstance = (GameObject)Instantiate (myRandomObject, spawn3.transform.position, Quaternion.identity);
 		
 	}
 
@@ -80,13 +77,27 @@ public class RandomLetterRain : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.Z)) 
 		{
 			//string myRandomWord = myWords [Random.Range (0, myWords.Length)];
-			
 			//print (myRandomWord);
 
-			GameObject myRandomObject = letterWordList1 [Random.Range (0, letterWordList1.Length)];
+			GameObject myRandomObject = letterGroupList1 [Random.Range (0, letterGroupList1.Length)];
 			print (myRandomObject);
 
 		}
+	}
+
+	void CheckWordPickList()
+	{
+		if (GameManager.wantedWord == "vela") 
+		{
+			GameObject myRandomObject =  letterGroupList1 [Random.Range (0, letterGroupList1.Length)];
+		}
+
+		if (Input.GetKeyUp (KeyCode.U)) 
+		{
+			listToSummon = letterGroupList2;
+
+		}
+
 	}
 
 

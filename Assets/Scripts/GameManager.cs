@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject livesText;
 	public AudioSource mainMusic;
 
-	public string wantedWord;
-	public string wantedLetter;
+	public static string wantedWord;
+	public static string wantedLetter;
 
 	public static int lives;
 
 
 	void Start () {
-		wantedWord = "Vela";
+		wantedWord = "VELA";
 		lives = 3;
 
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 
-		if (wantedWord =="Vela")wantedLetter = "a";
+		if (wantedWord =="VELA")wantedLetter = "A";
 
 
 		GameOver();	
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
 	void WordCompleter()
 	{
 		if (wantedLetter == CharController.myLetterValue) {
-			word.GetComponent<Text> ().text = "V e l " + CharController.myLetterValue;
+			word.GetComponent<Text> ().text = "V E L " + CharController.myLetterValue;
 			Debug.Log ("you win");
 		} else if (CharController.myLetterValue !=  "_")
 		{
