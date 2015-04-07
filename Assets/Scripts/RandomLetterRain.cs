@@ -1,4 +1,4 @@
-﻿	using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,10 +14,9 @@ public class RandomLetterRain : MonoBehaviour {
 	public GameObject spawn2;
 	public GameObject spawn3;
 
-	string[] myWords = new string[]{"rip","in","peace","mate"};
-	
-	//public List<GameObject> minhaLista = new List <GameObject> ();
+	//string[] myWords = new string[]{"bota","pato","juba","tampa","vela"};
 
+	public ArrayList myWordArray = new ArrayList();//usar o count em vez de lenght
 	 
 	public GameObject[] letterGroupList1 = new GameObject[2];
 	public GameObject[] letterGroupList2 = new GameObject[2];
@@ -29,19 +28,25 @@ public class RandomLetterRain : MonoBehaviour {
 
 
 	void Start () {
-
+		AssignWordGroupsArrayList ();
 		MakeItRain ();
 		listToSummon = letterGroupList1;
+
+
 
 	}
 	
 
 	void Update () {
 		CheckWordPickList ();
-
+		Debuger();
 
 		myRandomObject = listToSummon [Random.Range (0, listToSummon.Length)];
+
+
 	}
+
+
 
 
 	void LaunchProjectileLane1()
@@ -72,16 +77,24 @@ public class RandomLetterRain : MonoBehaviour {
 		InvokeRepeating ("LaunchProjectileLane3", 2.7f, 2);
 	}
 
-	void RainRandomLetter()
+	void Debuger()
 	{
 		if (Input.GetKeyUp (KeyCode.Z)) 
 		{
-			//string myRandomWord = myWords [Random.Range (0, myWords.Length)];
-			//print (myRandomWord);
 
-			GameObject myRandomObject = letterGroupList1 [Random.Range (0, letterGroupList1.Length)];
-			print (myRandomObject);
+			//object myRandomWord = myWordArray [Random.Range (0, myWordArray.Count)];
+			//print (myRandomWord.ToString());
+			for (int i = 0; i <myWordArray.Count; i++) 
+			{
+				print (myWordArray[i]);	
+			}
+			print ("*******************");
+		}
 
+		if (Input.GetKeyUp (KeyCode.X)) 
+		{
+			myWordArray.RemoveAt(0);//tira no index
+			myWordArray.Remove("bota");//tira na string
 		}
 	}
 
@@ -98,6 +111,17 @@ public class RandomLetterRain : MonoBehaviour {
 
 		}
 
+	}
+
+
+	void AssignWordGroupsArrayList()
+	{
+		// fazer um switch (level)
+		myWordArray.Add ("bota");
+		myWordArray.Add ("pato");
+		myWordArray.Add ("juba");
+		myWordArray.Add ("tampa");
+		myWordArray.Add ("vela");
 	}
 
 
